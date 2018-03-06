@@ -1,0 +1,18 @@
+Name: Tanner Gascon
+Assignment: ML Lab Questions
+
+1) val it = [4,2,5,2,6,10] : int list
+2) f returns a list where each element is incremented by 1. i.e. 3 becomes 4, 1 becomes 2....
+3) line (a) defines a function that takes in a list and outputs a list.
+4) line (b) returns an empty list if the list is empty or adds 1 to each element in the list and returns the updated list.
+5) False was the output because "one" != "1"
+6) it uses head recursion
+7) { best times, it was the worst of times }
+8) The tail recursive functions considered better than non-tail recursive functions because tail-recursion can be optimized by compiler since the recursive call is the last statement. Therefore there is nothing left to do in the current function, so saving the current function’s stack frame is not needed.
+9){ green eggs and ham }
+10){ and macaroni }
+11) I enjoyed that ML wasnt that hard to pick up and learn the basics and the setup for my mac went relatively smooth
+12) I did not like the way that errors were displayed or that it can be hard to know exactly what ML is looking for in a variable at times.
+13) I didnt mind this lab as once you figure out ML its not a terribly hard language, however my dislikes come from the errors. Figuring out what some errors mean can be difficult and requrie a ton of looking up.
+14) I spent about 6-7 hours on this lab, where most of this time was spent understanding ML
+15) Unless required by some company I dont currently have any use for ML.

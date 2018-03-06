@@ -2,12 +2,45 @@
 *
 * CSCI 305 - ML Programming Lab
 *
-* <firstname> <lastname>
-* <email-address>
+* <Tanner> <Gascon>
+* <tanner.a.gascon@gmail.com>
 *
 ***************************************************************)
 
 (* Define your data type and functions here *)
+datatype 'element set = Empty | Set of 'element * 'element set;
+
+fun f [] = [] (* a *)
+| f (x::xs) = (x+1) :: (f xs) (* b *);
+
+(*Create a function to see if an element is a member of a list by recursion *)
+fun isMemberList(e,[]) = false 
+	| isMemberList(e, x::xs) = 
+		if(e=x) then true
+		else isMemberList(e,xs); 
+
+(*Create a function to see if an element is a member of a set by recursion  *)
+fun isMember e Empty = false 
+	| isMember e (Set(x, xs)) = 
+		if(e=x) then true
+		else isMember e xs; 
+
+(*Create a function that converts a list to a set by iterating through the list and checking if the element is a repeat or not*)
+fun list2Set([]) = Empty 
+	|  list2Set(x::xs) = 
+		if(isMemberList(x, xs)) then list2Set(xs) else Set (x, list2Set(xs));
+
+(*Create a function that finds the union of two sets by checking if the element a is in set y and recursively adding to a new set*)
+fun union a (Empty) = a 
+	| union (Empty) a = a
+	| union (Set(a,b)) y =
+		if(isMember a y) then union b y else Set(a, union b y);
+
+(*Create a function that finds the intersection of two sets and returns the intersected set*)
+fun intersect a (Empty) = Empty 
+	| intersect (Empty) a = Empty
+	| intersect (Set(a,b)) y =
+		if(isMember a y) then Set(a, intersect b y) else intersect b y;
 
 (* Simple function to stringify the contents of a Set of characters *)
 fun stringifyCharSet Empty = ""
@@ -37,7 +70,7 @@ list2Set [6, 2, 2];
 list2Set ["x", "y", "z", "x"];
 
 (* Question 1 *)
-f [3, 1, 4, 1, 5, 9]
+f [3, 1, 4, 1, 5, 9];
 
 (* Question 5 *)
 val quest5 = isMember "one" (list2Set ["1", "2", "3", "4"]);
